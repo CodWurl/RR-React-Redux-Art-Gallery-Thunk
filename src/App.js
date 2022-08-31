@@ -1,6 +1,6 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import {fetchData} from './features/dataSlice';
+import {fetchData, nextImage, prevImage, setArtId, reset} from './features/dataSlice';
 
 function App() {
   const dispatch = useDispatch();
