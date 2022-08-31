@@ -16,12 +16,12 @@ function App() {
     <div className="App">
       <div>
         <button onClick={() => {dispatch(fetchData())}}>Trigger Thunk</button>
-        <button onClick={() => {}}>Clear</button>
-        <button onClick={() => {}}>Next</button>
-        <button onClick={() => {}}>Back</button>
+        <button onClick={() => {dispatch(reset())}}>Clear</button>
+        <button onClick={() => {dispatch(nextImage())}}>Next</button>
+        <button onClick={() => {dispatch(prevImage())}}>Back</button>
       </div>
       <h1>{currentState.artId}</h1>
-      <input onChange={(e) => { }} />
+      <input onChange={(e) => {dispatch(setArtId(e.target.value))}} />
       <div>
         {
           renderImage()
