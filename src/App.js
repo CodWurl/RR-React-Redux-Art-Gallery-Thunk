@@ -21,7 +21,7 @@ function App() {
         <button onClick={() => {dispatch(prevImage())}}>Back</button>
       </div>
       <h1>{currentState.artId}</h1>
-      <input onChange={(e) => {dispatch(setArtId(e.target.value))}} />
+      <input value ={currentState.artId} onChange={(e) => {dispatch(setArtId(e.target.value))}} />
       <div>
         {
           renderImage()
