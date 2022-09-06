@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 function App(props) {
   const dispatch = useDispatch();
-  const currentState = useSelector (state => state.data)
+  const currentState = useSelector (state => state.data);
 
   useEffect (() => {
     dispatch(fetchData())
