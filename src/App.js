@@ -1,10 +1,24 @@
 import './App.css';
-import { useSelector, useDispatch } from 'react-redux'
+import {useEffect} from 'react';
+import { useSelector, useDispatch, connect } from 'react-redux'
 import {fetchData, nextImage, prevImage, setArtId, reset} from './features/dataSlice';
 
-function App() {
+//Defined function to map state to props
+const mapStateToProps = (state) => ({
+  artId: state.data.artId
+})
+
+
+
+function App(props) {
   const dispatch = useDispatch();
   const currentState = useSelector (state => state.data)
+
+  useEffect (() => {
+    dispatch(fetchData())
+  },[props.artId, dispatch])
+
+
   const renderImage = () => {
    return currentState.apiData.primaryImage ?
   <img src = {currentState.apiData.primaryImage}/>:
@@ -31,4 +45,5 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
+
